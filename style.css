@@ -1,0 +1,20 @@
+.color  {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-width:1px;
+    list-style: none;
+    display: inline-block; 
+}
+
+
+.pixel {
+
+border: 1px solid black;
+width: 40px;
+height: 40px;
+display: inline-block;
+
+}
+
+
