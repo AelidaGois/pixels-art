@@ -10,13 +10,14 @@ function criarQuadrado() {
     
 for (let linha = 0; linha < 5; linha++){
     let divLinha = document.createElement('div')
-    pixelBoard.appendChild(divLinha);
+    
     for(let coluna = 0; coluna < 5; coluna++){
         let pixels = document.createElement('div');
         divLinha.appendChild(pixels);
         pixels.className= "pixel";
     }
 
+    pixelBoard.appendChild(divLinha);
 
     
 
