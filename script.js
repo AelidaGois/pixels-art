@@ -2,9 +2,8 @@ let colorsDiv = document.getElementsByClassName('color');
 let colors = ['black','yellow','red','blue']
 for (let i = 0; i < colors.length; i++){
     colorsDiv[i].style.backgroundColor = colors[i];
+    colorsDiv[i].addEventListener('click',selecionarCor);
 }
-
-
 
 function criarQuadrado() {
 
@@ -20,16 +19,33 @@ function criarQuadrado() {
         }
 
         pixelBoard.appendChild(divLinha);
-
     }
 
 }
 criarQuadrado();
 
-function obterCor (elemento){
+// function obterCor (elemento){
 
-    return elemento.style.backgroundColor;
+//     return elemento.style.backgroundColor;
+// }
+
+function selecionarCor (e){
+let elementoAtual = obterElementoSelecionado();
+removerClasseSelecionado(elementoAtual);
+
+let elementoClicado = e.target;
+adicionarClasseSelecionado(elementoClicado);
 }
-let corAtual = obterCor(colorsDiv[0]);
 
+function obterElementoSelecionado (){
+return document.getElementsByClassName('color selected')[0];
+}
+
+function adicionarClasseSelecionado (elemento){
+    elemento.classList.add('selected');
+}
+
+function removerClasseSelecionado (elemento){
+    elemento.classList.remove('selected');
+}
 
