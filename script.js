@@ -2,7 +2,7 @@ let colorsDiv = document.getElementsByClassName('color');
 let colors = ['black','yellow','red','blue']
 for (let i = 0; i < colors.length; i++){
     colorsDiv[i].style.backgroundColor = colors[i];
-    colorsDiv[i].addEventListener('click',selecionarCor);
+    colorsDiv[i].addEventListener('click',selecionarCorEvento);
 }
 
 function criarQuadrado() {
@@ -16,6 +16,7 @@ function criarQuadrado() {
             let pixels = document.createElement('div');
             divLinha.appendChild(pixels);
             pixels.className = "pixel";
+            pixels.addEventListener('click',selecionarPixelEvento);
         }
 
         pixelBoard.appendChild(divLinha);
@@ -29,7 +30,7 @@ criarQuadrado();
 //     return elemento.style.backgroundColor;
 // }
 
-function selecionarCor (e){
+function selecionarCorEvento (e){     //seleciona a cor da paleta de cores
 let elementoAtual = obterElementoSelecionado();
 removerClasseSelecionado(elementoAtual);
 
@@ -37,15 +38,45 @@ let elementoClicado = e.target;
 adicionarClasseSelecionado(elementoClicado);
 }
 
-function obterElementoSelecionado (){
+function obterElementoSelecionado (){  //seleciona o elemento
 return document.getElementsByClassName('color selected')[0];
 }
 
-function adicionarClasseSelecionado (elemento){
+function adicionarClasseSelecionado (elemento){ //adiciona classe selected ao elemento 
     elemento.classList.add('selected');
 }
 
-function removerClasseSelecionado (elemento){
+function removerClasseSelecionado (elemento){ //remove a classe anterior selected para dar lugar ao novo elemento de cor escolhido
     elemento.classList.remove('selected');
 }
 
+// requisito 8
+
+
+function selecionarPixelEvento (e){ // seleciona o pixel desejado dentro do quadro (pixel-board) de pixels
+   
+
+/*
+obter a COR selecionada (elemento)
+extrair a cor
+obter o elemento clicado
+colocar a cor no elemento clicado
+*/
+
+let corSelecionadaDoElemento = obterElementoSelecionado();
+let cor = extrairCor(corSelecionadaDoElemento);
+let elementoClicado = e.target;
+preencherComCor(elementoClicado,cor);
+
+}
+
+    
+function extrairCor(elemento) { //
+    return elemento.style.backgroundColor;
+
+}
+
+
+function preencherComCor (elemento, cor){
+elemento.style.backgroundColor = cor;
+}
