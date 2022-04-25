@@ -92,8 +92,19 @@ sectionBotao.appendChild(botaoLimpar);
 function pintarDeBranco (e){
     let pixels = document.getElementsByClassName('pixel');
 
-
     for(let i = 0; i < pixels.length; i++){
         pixels[i].style.backgroundColor ="white";
     }
 }
+
+//requisito 10
+
+let idInput = document.getElementById('sectionInput');
+let buttonVQV = document.createElement('button');
+buttonVQV.id ='generate-board';
+buttonVQV.innerText = 'VQV';
+idInput.appendChild(buttonVQV);
+
+
+
+// 
