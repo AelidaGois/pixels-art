@@ -80,3 +80,20 @@ function extrairCor(elemento) { //
 function preencherComCor (elemento, cor){
 elemento.style.backgroundColor = cor;
 }
+
+// requisito 9 criar botao
+let sectionBotao = document.getElementById('botao');
+let botaoLimpar = document.createElement('button');
+botaoLimpar.id = 'clear-board';
+botaoLimpar.innerText = 'Limpar';
+botaoLimpar.addEventListener('click',pintarDeBranco);
+sectionBotao.appendChild(botaoLimpar);
+
+function pintarDeBranco (e){
+    let pixels = document.getElementsByClassName('pixel');
+
+
+    for(let i = 0; i < pixels.length; i++){
+        pixels[i].style.backgroundColor ="white";
+    }
+}
