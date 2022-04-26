@@ -98,12 +98,11 @@ let buttonVQV = document.createElement('button');
 
 function configurarButtonVQV() {
 
-
     buttonVQV.id = 'generate-board';
     buttonVQV.innerText = 'VQV';
     idInput.appendChild(buttonVQV);
-    let vqv = document.getElementById('generate-board');
-    vqv.addEventListener('click', () => {
+
+    buttonVQV.addEventListener('click', () => {
         let input = document.getElementById('board-size');
         if (input.value === '') {
             alert('Board inválido!');
