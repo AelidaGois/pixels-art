@@ -106,11 +106,42 @@ function configurarButtonVQV() {
         let input = document.getElementById('board-size');
         if (input.value === '') {
             alert('Board inválido!');
-        }
-        // if (input >= 5 && input <= 50) {
+        } if (input.value >= 5 && input.value <= 50) {
 
-        // }
+        }
     })
 } configurarButtonVQV();
+
+function limparQuadro() {
+    let quadro = document.getElementById('pixel-board');
+    quadro.remove(); // 2 limpar o board(quadro)
+
+}
+
+
+function criarNovoQuadro() {
+
+    limparQuadro()
+    let armazenaInput = input.value; // 1 criar criar variável para armazenar (input.value)
+
+
+    let botaoVQV = document.getElementById('generate-board');
+
+
+
+    for (let linha = 0; linha < armazenaInput; linha++) {  //3 criar novos pixels
+        let divLinhaNovoQuadro = document.createElement('div')
+
+console.log(divLinhaNovoQuadro);
+        for (let coluna = 0; coluna < armazenaInput; coluna++) {
+            let pixelsNovoQuadro = document.createElement('div');
+            divLinhaNovoQuadro.appendChild(pixelsNovoQuadro);
+
+        }
+        
+    }
+    
+}
+botaoVQV.addEventListener('click', criarNovoQuadro);
 
 // 
