@@ -5,14 +5,14 @@ for (let i = 0; i < colors.length; i++) {
     colorsDiv[i].addEventListener('click', selecionarCorEvento);
 }
 
-function criarQuadrado() {
+function criarQuadrado(quantidade) {
 
     let pixelBoard = document.getElementById('pixel-board');
 
-    for (let linha = 0; linha < 5; linha++) {
+    for (let linha = 0; linha < quantidade; linha++) {
         let divLinha = document.createElement('div')
 
-        for (let coluna = 0; coluna < 5; coluna++) {
+        for (let coluna = 0; coluna < quantidade; coluna++) {
             let pixels = document.createElement('div');
             divLinha.appendChild(pixels);
             pixels.className = "pixel";
@@ -23,7 +23,7 @@ function criarQuadrado() {
     }
 
 }
-criarQuadrado();
+criarQuadrado(5);
 
 function selecionarCorEvento(e) {     //seleciona a cor da paleta de cores
     let elementoAtual = obterElementoSelecionado();
@@ -107,41 +107,16 @@ function configurarButtonVQV() {
         if (input.value === '') {
             alert('Board inválido!');
         } if (input.value >= 5 && input.value <= 50) {
-
+            limparQuadro();
+            criarQuadrado(input.value);
         }
     })
 } configurarButtonVQV();
 
 function limparQuadro() {
     let quadro = document.getElementById('pixel-board');
-    quadro.remove(); // 2 limpar o board(quadro)
+    quadro.innerHTML="";
 
 }
 
 
-function criarNovoQuadro() {
-
-    limparQuadro()
-    let armazenaInput = input.value; // 1 criar criar variável para armazenar (input.value)
-
-
-    let botaoVQV = document.getElementById('generate-board');
-
-
-
-    for (let linha = 0; linha < armazenaInput; linha++) {  //3 criar novos pixels
-        let divLinhaNovoQuadro = document.createElement('div')
-
-console.log(divLinhaNovoQuadro);
-        for (let coluna = 0; coluna < armazenaInput; coluna++) {
-            let pixelsNovoQuadro = document.createElement('div');
-            divLinhaNovoQuadro.appendChild(pixelsNovoQuadro);
-
-        }
-        
-    }
-    
-}
-botaoVQV.addEventListener('click', criarNovoQuadro);
-
-// 
