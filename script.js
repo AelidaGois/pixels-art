@@ -20,6 +20,9 @@ function criarQuadrado(quantidade) {
         }
 
         pixelBoard.appendChild(divLinha);
+        pixelBoard.style.border = "4px solid white";
+        pixelBoard.style.backgroundColor="black";
+        pixelBoard.style.flexWrap = "wrap";
     }
 
 }
